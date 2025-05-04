@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link rel="stylesheet" href="{% static 'output.css' %}">
+</head>
+<body class="bg-blue-500 min-h-screen flex items-center justify-center">
+
+  <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
+    <h2 class="text-2xl font-bold text-center text-gray-700 mb-6">Create Account</h2>
+
+    <form method="POST" action="{% url "login" %}">
+      {% csrf_token %}
+
+      <!-- Username -->
+      <div class="mb-4">
+        <label for="username" class="block text-sm font-medium text-gray-600">Username</label>
+        <input
+          type="text"
+          name="username"
+          id="username"
+          required
+          class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+      </div>
+
+      <!-- Password -->
+      <div class="mb-4">
+        <label for="password" class="block text-sm font-medium text-gray-600">Password</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          required
+          class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="mb-6">
+        <label for="confirm_password" class="block text-sm font-medium text-gray-600">Confirm Password</label>
+        <input
+          type="password"
+          name="confirm_password"
+          id="confirm_password"
+          required
+          class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+      </div>
+
+      <!-- Submit Button -->
+      <button
+        type="submit"
+        class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-xl transition">
+        Register
+      </button>
+      {% comment %} login-tag {% endcomment %}
+      <a class='text-lg text-gray-700 mt-4 block' href="{% url "login" %}">login account</a>
+    </form>
+
+   
+  </div>
+  {% if message %}
+  <p class="mt-4 text-center text-green-600 font-medium">{{ message }}</p>
+  {% endif %}
+</body>
+</html>

@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My App</title>
+  <link rel="stylesheet" href="{% static 'output.css' %}">
+</head>
+<body class="bg-gray-100">
+
+    <nav class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+          <div class="text-xl font-bold text-blue-600">MyApp</div>
+          <div class="space-x-6">
+            <a href="/login" class="text-gray-700 hover:text-blue-600 font-medium">Login</a>
+            <a href="/tasklist" class="text-gray-700 hover:text-blue-600 font-medium">Task Page</a>
+            <a href="/register" class="text-gray-700 hover:text-blue-600 font-medium">Registration</a>
+            
+          </div>
+
+        </div>
+        
+      </nav>
+      <div class='flex flex-col md:flex-row md:space-x-6 space-y-4 space-x-6 md:space-y-0'>
+      {% for x in p %}
+      <div class=' w-full md:w-1/2 '>
+      <img class='shadow-lg shadow-slate-700 w-full h-auto object-contain mt-9 p-6 ' src="{{x.image.url}} " alt="no pic">
+      </div>
+      
+      {% endfor %}
+      <div class='md:w-1/2 w-full px-4'>
+        <p class='text-start text-3xl text-pretty mt-11 font-bold'>A ToDo Task Manager is an app or tool that helps you organize and track your tasks or activities. You can add tasks, edit them, mark them as done, or delete them when finished. It’s great for staying organized, improving productivity, and making sure you don’t forget important work.</p>
+          <p class=' text-center text-blue-800 text-xl font-bold mt-20'>Do something today that your future self will thank you for.</p>
+      
+      </div>
+     
+    </div>
+      
+     
+   
+ 
+
+ 
+</body>
+</html>
